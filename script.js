@@ -3,8 +3,8 @@ let btn = document.getElementById("add-btn");
 
 btn.addEventListener("click", function () {
     let name = document.getElementById("name").value;
-    let age = document.getElementById("age").value;
     let email = document.getElementById("email").value;
+    let age = document.getElementById("age").value;
     let gpa = document.getElementById("gpa").value;
     let degree = document.getElementById("degree").value;
 
@@ -18,10 +18,10 @@ btn.addEventListener("click", function () {
         cell.innerHTML = name;
         
         cell = row.insertCell();
-        cell.innerHTML = age;
+        cell.innerHTML = email;
         
         cell = row.insertCell();
-        cell.innerHTML = email;
+        cell.innerHTML = age;
         
         cell = row.insertCell();
         cell.innerHTML = gpa;
@@ -39,6 +39,8 @@ btn.addEventListener("click", function () {
     }
 });
 
+document.getElementById("search").addEventListener("input", search);
+
 function deleteRow(button) {
     let row = button.parentNode.parentNode;
     table.deleteRow(row.rowIndex);
@@ -52,8 +54,8 @@ function editRow(button) {
     document.getElementById("add-btn").style.backgroundColor = "#ffc107";
 
     document.getElementById("name").value = cells[1].innerHTML;
-    document.getElementById("age").value = cells[2].innerHTML;
-    document.getElementById("email").value = cells[3].innerHTML;
+    document.getElementById("email").value = cells[2].innerHTML;
+    document.getElementById("age").value = cells[3].innerHTML;
     document.getElementById("gpa").value = cells[4].innerHTML;
     document.getElementById("degree").value = cells[5].innerHTML;
     
@@ -78,5 +80,22 @@ function editId () {
     let rows = table.rows;
     for (let i = 1; i < rows.length; i++) {
         rows[i].cells[0].innerHTML = i;
+    }
+}
+
+function search() {
+    let input = document.getElementById("search").value.toLowerCase();
+    let rows = table.rows;
+
+    for (let i = 1; i < rows.length; i++) {
+        let name = rows[i].cells[1].innerHTML.toLowerCase();
+        let email = rows[i].cells[3].innerHTML.toLowerCase();
+        let age = rows[i].cells[2].innerHTML.toLowerCase();
+        
+        if (name.includes(input) || email.includes(input) || age.includes(input)) {
+            rows[i].style.display = "";
+        } else {
+            rows[i].style.display = "none";
+        }
     }
 }

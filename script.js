@@ -30,8 +30,8 @@ btn.addEventListener("click", function () {
         cell.innerHTML = degree;
         
         cell = row.insertCell();
-        cell.innerHTML = `<button class="btn btn-danger" onclick="deleteRow(this)">Delete</button>`;
-        cell.innerHTML += `<button class="btn btn-warning" onclick="editRow(this)">Edit</button>`;
+        cell.innerHTML = `<button class="btn btn-warning" onclick="editRow(this)"><i class="fa-regular fa-pen-to-square"></i></button>`;
+        cell.innerHTML += `<button class="btn btn-danger" onclick="deleteRow(this)"><i class="fa-solid fa-trash"></i></button>`;
         
         clearInputFields();
     } else {

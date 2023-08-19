@@ -42,6 +42,7 @@ btn.addEventListener("click", function () {
 function deleteRow(button) {
     let row = button.parentNode.parentNode;
     table.deleteRow(row.rowIndex);
+    editId();    
 }
 
 function editRow(button) {
@@ -57,6 +58,7 @@ function editRow(button) {
     document.getElementById("degree").value = cells[5].innerHTML;
     
     table.deleteRow(row.rowIndex);
+    editId();
 
     document.getElementById("add-btn").addEventListener("click", function () {
         document.getElementById("add-btn").innerHTML = "Add Student";
@@ -70,4 +72,11 @@ function clearInputFields() {
     document.getElementById("email").value = "";
     document.getElementById("gpa").value = "";
     document.getElementById("degree").value = "";
+}
+
+function editId () {
+    let rows = table.rows;
+    for (let i = 1; i < rows.length; i++) {
+        rows[i].cells[0].innerHTML = i;
+    }
 }

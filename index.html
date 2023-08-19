@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student management</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <h1>Student Management CRUD</h1>
+
+    <div class="std-form">
+        <form action="" id="std-form">
+    
+            <input type="text" id="name" placeholder="Name"></input>
+            <input type="email" id="email" placeholder="Email"></input>
+            <input type="text" id="gpa" placeholder="Gpa"></input>
+            <input type="number" id="age" name="age" placeholder="Age" id="age">
+            <input type="text" id="degree" placeholder="Degree">
+        </form>
+
+    </div>
+    <button class="add-btn" id="add-btn">Add Student</button>
+    <br>
+    <input type="text" class="search" placeholder="Search by Name,email or Degree">
+
+    <div class="tbl" id="tbl">
+        <Table id="table">
+            <tr>
+                <td>ID</td>
+                <td>Student Name</td>
+                <td>Email</td>
+                <td>Age</td>
+                <td>Gpa</td>
+                <td>Degree</td>
+                <td>Edit/Delete</td>
+
+            </tr>
+            
+        </Table>
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>
